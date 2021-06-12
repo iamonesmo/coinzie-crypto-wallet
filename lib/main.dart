@@ -28,29 +28,42 @@ class _MainAppState extends State<MainApp> {
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            'Coinzie',
-            style: TextStyle(
-                color: Colors.greenAccent,
-                fontSize: 24,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
+        // title: Center(
+        //   child: Text(
+        //     'Coinzie',
+        //     style: TextStyle(
+        //         color: Colors.greenAccent,
+        //         fontSize: 24,
+        //         fontWeight: FontWeight.bold),
+        //   ),
+
+        // ),
+        title: Image.asset('assets/logo.png'),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Icon(
-              Icons.account_balance_wallet_outlined,
-              color: Colors.greenAccent,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              icon: Icon(
+                Icons.account_balance_wallet_outlined,
+                size: 40,
+                color: Colors.green[400],
+              ),
+              tooltip: 'Go to Wallet',
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('This will navigate to next screen')));
+              },
             ),
           ),
         ],
-        leading: Icon(Icons.notes, color: Colors.greenAccent),
-        // leading: IconButton(
-        //   icon: Image.asset('assets/large_coinzie.png'),
-        //   onPressed: () {},
-        // ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.notes,
+            color: Colors.green[400],
+            size: 40,
+          ),
+          onPressed: () {},
+        ),
       ),
       body: Container(
         child: Column(
