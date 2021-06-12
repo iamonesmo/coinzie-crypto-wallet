@@ -25,19 +25,42 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Container(
+          width: 100,
+          color: Colors.blueAccent,
+          child: Drawer(
+            child: Column(
+              children: [
+                ListTile(
+                  title: Icon(Icons.login_outlined),
+                ),
+                ListTile(
+                  title: Icon(Icons.login_outlined),
+                ),
+                ListTile(
+                  title: Icon(Icons.login_outlined),
+                )
+              ],
+            ),
+          )),
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.green[400],
+        ),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: const Icon(
+                  Icons.menu,
+                  size: 40,
+                ));
+          },
+        ),
         backgroundColor: Colors.white,
-        // title: Center(
-        //   child: Text(
-        //     'Coinzie',
-        //     style: TextStyle(
-        //         color: Colors.greenAccent,
-        //         fontSize: 24,
-        //         fontWeight: FontWeight.bold),
-        //   ),
-
-        // ),
         title: Image.asset('assets/logo.png'),
         actions: [
           Padding(
@@ -46,7 +69,7 @@ class _MainAppState extends State<MainApp> {
               icon: Icon(
                 Icons.account_balance_wallet_outlined,
                 size: 40,
-                color: Colors.green[400],
+                // color: Colors.green[400],
               ),
               tooltip: 'Go to Wallet',
               onPressed: () {
@@ -56,21 +79,8 @@ class _MainAppState extends State<MainApp> {
             ),
           ),
         ],
-        leading: IconButton(
-          icon: Icon(
-            Icons.notes,
-            color: Colors.green[400],
-            size: 40,
-          ),
-          onPressed: () {},
-        ),
       ),
-      body: Container(
-        child: Column(
-            // children: [
-            // Image(image: Image.asset(name)),
-            ),
-      ),
+      body: Container(),
     );
   }
 }
