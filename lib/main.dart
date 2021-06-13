@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Coinzie : Crypto Wallet',
+      theme: ThemeData(primaryColor: Colors.deepPurpleAccent.shade400),
       home: MainApp(),
       debugShowCheckedModeBanner: false,
     );
@@ -44,7 +45,7 @@ class _MainAppState extends State<MainApp> {
                         style: TextStyle(
                             shadows: [
                               Shadow(
-                                  color: Colors.blueGrey.shade800,
+                                  color: Colors.blue.shade900,
                                   offset: Offset(0, -7)),
                             ],
                             fontFamily: 'Varela Round',
@@ -60,7 +61,7 @@ class _MainAppState extends State<MainApp> {
                         'CRYPTO WALLET',
                         style: TextStyle(
                             fontSize: 20.0,
-                            color: Colors.green.shade400,
+                            color: Colors.blue.shade900,
                             letterSpacing: 2),
                       )
                     ],
@@ -77,7 +78,7 @@ class _MainAppState extends State<MainApp> {
       appBar: AppBar(
         elevation: 0.0,
         iconTheme: IconThemeData(
-          color: Colors.green[400],
+          color: Colors.blue[900],
         ),
         leading: Builder(
           builder: (BuildContext context) {
@@ -92,66 +93,150 @@ class _MainAppState extends State<MainApp> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Image.asset('assets/images/logo.png'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: IconButton(
-              icon: Icon(
-                Icons.account_balance_wallet_outlined,
-                size: 40,
-              ),
-              tooltip: 'Go to Wallet',
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('This will navigate to next screen')));
-              },
-            ),
-          ),
-        ],
+        title: Text(
+          'Coinzie',
+          style: TextStyle(
+              fontFamily: 'Varela Round',
+              color: Colors.blue[900],
+              fontSize: 40,
+              fontWeight: FontWeight.bold),
+        ),
+        // child: Image.asset(
+        //   'assets/images/logo.png',
+        //   height: 100,
+        // ),
+
+        // actions: [
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 10),
+        //   child: IconButton(
+        //     icon: Icon(
+        //       Icons.account_balance_wallet_outlined,
+        //       size: 40,
+        //     ),
+        //     tooltip: 'Go to Wallet',
+        //     onPressed: () {
+        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        //           content: Text('This will navigate to next screen')));
+        //     },
+        //   ),
+        // ),
+        // ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 0.0),
-        child: Container(
-          // alignment: Alignment.center,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Popular Coins',
-                    style: TextStyle(
-                        // fontFamily: 'Varela Round',
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 15.0,
+            ),
+            Column(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width - 15,
+                  // height: 300,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0)),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          'https://coingate.com/_next/static/images/buy-crypto-f3dad06ca5c7e714af9222a455aa63a5.png',
+                          width: MediaQuery.of(context).size.width - 15,
+                          height: 200,
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(top: 6.0, bottom: 15.0),
+                          child: Text(
+                            'Buy a piece of the future',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 17,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Popular Coins',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 20,
                   ),
                 ),
               ),
-              CoinsScroller(),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                // alignment: Alignment.center,
-                width: 350,
-                height: 200,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0)),
-                  child: Center(
-                      child: Text(
-                    'Welcome',
-                    style: TextStyle(
-                        fontSize: 40,
-                        fontFamily: 'Varela Round',
-                        fontWeight: FontWeight.bold),
-                  )),
+            ),
+            CoinsScroller(),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width - 15,
+              height: 200,
+              child: Card(
+                color: Colors.deepPurpleAccent.shade400,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        'assets/images/signup.png',
+                        width: MediaQuery.of(context).size.width * 0.40,
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(right: 10.0),
+                      width: MediaQuery.of(context).size.width * 0.50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Sign Up and Get Started',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          TextFormField(
+                            style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.deepPurpleAccent[400]),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(left: 12),
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(100)),
+                                    borderSide: BorderSide.none),
+                                hintText: 'Enter Your Name',
+                                hintStyle: TextStyle(fontSize: 13)),
+                          ),
+
+                          // TextButton(onPressed: onPressed, child: TextStyle(),
+                          // style: ButtonStyle(col),)
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
