@@ -1,4 +1,6 @@
+import 'package:coinzie/customListTile.dart';
 import 'package:flutter/material.dart';
+// import '../customListTile.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,24 +27,23 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Container(
-          width: 100,
-          color: Colors.blueAccent,
-          child: Drawer(
-            child: Column(
-              children: [
-                ListTile(
-                  title: Icon(Icons.login_outlined),
-                ),
-                ListTile(
-                  title: Icon(Icons.login_outlined),
-                ),
-                ListTile(
-                  title: Icon(Icons.login_outlined),
-                )
-              ],
-            ),
-          )),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: <Color>[
+                  Colors.blueGrey.shade500,
+                  Colors.green.shade500,
+                ])),
+                child: Text('Drawer Header')),
+            CustomListTile(Icons.person, 'Profile', () {}),
+            CustomListTile(Icons.notifications, 'Notifcations', () {}),
+            CustomListTile(Icons.settings, 'Settings', () {}),
+            CustomListTile(Icons.logout, 'Log Out', () {})
+          ],
+        ),
+      ),
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -69,7 +70,6 @@ class _MainAppState extends State<MainApp> {
               icon: Icon(
                 Icons.account_balance_wallet_outlined,
                 size: 40,
-                // color: Colors.green[400],
               ),
               tooltip: 'Go to Wallet',
               onPressed: () {
