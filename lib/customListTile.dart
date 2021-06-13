@@ -24,17 +24,24 @@ class CustomListTile extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(tileIcon),
+                    Icon(
+                      tileIcon,
+                      color: Colors.blueGrey.shade800,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         tileText,
-                        style: TextStyle(fontSize: 16.0),
+                        style: TextStyle(
+                            fontSize: 16.0, color: Colors.blueGrey.shade800),
                       ),
                     )
                   ],
                 ),
-                Icon(Icons.arrow_right)
+                Icon(
+                  Icons.arrow_right,
+                  color: Colors.blueGrey.shade800,
+                )
               ],
             ),
           ),

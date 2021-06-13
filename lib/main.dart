@@ -30,17 +30,45 @@ class _MainAppState extends State<MainApp> {
       drawer: Drawer(
         child: ListView(
           children: [
-            DrawerHeader(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: <Color>[
-                  Colors.blueGrey.shade500,
-                  Colors.green.shade500,
-                ])),
-                child: Text('Drawer Header')),
-            CustomListTile(Icons.person, 'Profile', () {}),
-            CustomListTile(Icons.notifications, 'Notifcations', () {}),
-            CustomListTile(Icons.settings, 'Settings', () {}),
-            CustomListTile(Icons.logout, 'Log Out', () {})
+            Container(
+              height: 150,
+              child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Coinzie',
+                        style: TextStyle(
+                            shadows: [
+                              Shadow(
+                                  color: Colors.blueGrey.shade800,
+                                  offset: Offset(0, -7)),
+                            ],
+                            fontFamily: 'Varela Round',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 50,
+                            color: Colors.transparent,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.green.shade400,
+                            decorationThickness: 0.3,
+                            letterSpacing: 1),
+                      ),
+                      Text(
+                        'CRYPTO WALLET',
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.green.shade400,
+                            letterSpacing: 2),
+                      )
+                    ],
+                  )),
+            ),
+            CustomListTile(Icons.person_outline, 'Account', () {}),
+            CustomListTile(Icons.notifications_outlined, 'Notifcations', () {}),
+            CustomListTile(Icons.settings_outlined, 'Settings', () {}),
+            CustomListTile(Icons.logout_outlined, 'Log Out', () {})
           ],
         ),
       ),
@@ -62,7 +90,7 @@ class _MainAppState extends State<MainApp> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Image.asset('assets/logo.png'),
+        title: Image.asset('assets/images/logo.png'),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
