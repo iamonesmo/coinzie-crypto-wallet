@@ -1,5 +1,6 @@
 import 'package:coinzie/coinsScroller.dart';
 import 'package:coinzie/customListTile.dart';
+import 'package:coinzie/secondScreen.dart';
 import 'package:flutter/material.dart';
 // import '../customListTile.dart';
 
@@ -226,9 +227,24 @@ class _MainAppState extends State<MainApp> {
                                 hintText: 'Enter Your Name',
                                 hintStyle: TextStyle(fontSize: 13)),
                           ),
-
-                          // TextButton(onPressed: onPressed, child: TextStyle(),
-                          // style: ButtonStyle(col),)
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return SecondScreen();
+                              }));
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Colors.tealAccent.shade400),
+                            ),
+                            child: Text(
+                              'Submit',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            ),
+                            // style: ButtonStyle(col),
+                          )
                         ],
                       ),
                     )
