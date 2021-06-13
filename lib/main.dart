@@ -2,6 +2,7 @@ import 'package:coinzie/coinsScroller.dart';
 import 'package:coinzie/customListTile.dart';
 import 'package:coinzie/secondScreen.dart';
 import 'package:flutter/material.dart';
+import '/Global/global.dart' as globalData;
 // import '../customListTile.dart';
 
 void main() {
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coinzie : Crypto Wallet',
       theme: ThemeData(primaryColor: Colors.deepPurpleAccent.shade400),
+      routes: {
+        "/secondScreen": (context) => SecondScreen(),
+      },
       home: MainApp(),
       debugShowCheckedModeBanner: false,
     );
@@ -27,6 +31,18 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  final myController = TextEditingController();
+
+  void clearText() {
+    myController.clear();
+  }
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,67 +118,10 @@ class _MainAppState extends State<MainApp> {
               fontSize: 40,
               fontWeight: FontWeight.bold),
         ),
-        // child: Image.asset(
-        //   'assets/images/logo.png',
-        //   height: 100,
-        // ),
-
-        // actions: [
-        // Padding(
-        //   padding: const EdgeInsets.symmetric(horizontal: 10),
-        //   child: IconButton(
-        //     icon: Icon(
-        //       Icons.account_balance_wallet_outlined,
-        //       size: 40,
-        //     ),
-        //     tooltip: 'Go to Wallet',
-        //     onPressed: () {
-        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        //           content: Text('This will navigate to next screen')));
-        //     },
-        //   ),
-        // ),
-        // ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 15.0,
-            ),
-            Column(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width - 15,
-                  // height: 300,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    child: Column(
-                      children: [
-                        Image.network(
-                          'https://coingate.com/_next/static/images/buy-crypto-f3dad06ca5c7e714af9222a455aa63a5.png',
-                          width: MediaQuery.of(context).size.width - 15,
-                          height: 200,
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(top: 6.0, bottom: 15.0),
-                          child: Text(
-                            'Buy a piece of the future',
-                            style: TextStyle(
-                              color: Colors.blue[900],
-                              fontSize: 17,
-                              fontFamily: 'Poppins',
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Container(
@@ -206,13 +165,23 @@ class _MainAppState extends State<MainApp> {
                             'Sign Up and Get Started',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 8),
+                            padding: EdgeInsets.all(8),
+                            child: Text(
+                              'Buy, Sell or Accept Cryptocurrency with Coinzie',
+                              style:
+                                  TextStyle(fontSize: 11, color: Colors.white),
+                            ),
                           ),
                           SizedBox(
                             height: 10.0,
                           ),
                           TextFormField(
+                            controller: myController,
                             style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.deepPurpleAccent[400]),
@@ -227,23 +196,31 @@ class _MainAppState extends State<MainApp> {
                                 hintText: 'Enter Your Name',
                                 hintStyle: TextStyle(fontSize: 13)),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return SecondScreen();
-                              }));
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.tealAccent.shade400),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              // border: Border.all(color: Colors.black),
                             ),
-                            child: Text(
-                              'Submit',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 13),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  globalData.formValue = myController.text;
+                                  // myController.text = '';
+
+                                  return SecondScreen();
+                                }));
+                              },
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.tealAccent.shade400),
+                              ),
+                              child: Text(
+                                'Submit',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13),
+                              ),
                             ),
-                            // style: ButtonStyle(col),
                           )
                         ],
                       ),
