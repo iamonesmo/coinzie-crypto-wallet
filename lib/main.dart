@@ -1,3 +1,4 @@
+import 'package:coinzie/coinsScroller.dart';
 import 'package:coinzie/customListTile.dart';
 import 'package:flutter/material.dart';
 // import '../customListTile.dart';
@@ -74,6 +75,7 @@ class _MainAppState extends State<MainApp> {
       ),
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
+        elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.green[400],
         ),
@@ -108,7 +110,50 @@ class _MainAppState extends State<MainApp> {
           ),
         ],
       ),
-      body: Container(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 0.0),
+        child: Container(
+          // alignment: Alignment.center,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Popular Coins',
+                    style: TextStyle(
+                        // fontFamily: 'Varela Round',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              CoinsScroller(),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                // alignment: Alignment.center,
+                width: 350,
+                height: 200,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0)),
+                  child: Center(
+                      child: Text(
+                    'Welcome',
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontFamily: 'Varela Round',
+                        fontWeight: FontWeight.bold),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
