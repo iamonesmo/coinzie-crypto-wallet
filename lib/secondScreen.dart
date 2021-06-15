@@ -27,7 +27,7 @@ class _SecondScreenState extends State<SecondScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 6.0, bottom: 15.0),
                       child: Text(
-                        'Welcome ${globalData.formValue}',
+                        'Welcome, ${globalData.formValue}',
                         style: TextStyle(
                           color: Colors.blue[900],
                           fontSize: 17,
