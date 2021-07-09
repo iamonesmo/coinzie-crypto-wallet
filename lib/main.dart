@@ -1,25 +1,26 @@
 import 'package:coinzie/coinsScroller.dart';
 import 'package:coinzie/customListTile.dart';
 import 'package:coinzie/secondScreen.dart';
+import 'package:coinzie/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '/Global/global.dart' as globalData;
-// import '../customListTile.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Coinzie : Crypto Wallet',
       theme: ThemeData(primaryColor: Colors.deepPurpleAccent.shade400),
       routes: {
         "/secondScreen": (context) => SecondScreen(),
       },
-      home: MainApp(),
+      home: Welcome(),
       debugShowCheckedModeBanner: false,
     );
   }
