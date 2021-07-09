@@ -58,6 +58,21 @@ class _SecondScreenState extends State<SecondScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance_wallet_outlined),
+              label: 'Wallets'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.pie_chart_outline), label: 'Portfolio'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart_outlined), label: 'Markets'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline), label: 'Account'),
+        ],
+      ),
     );
   }
 }
