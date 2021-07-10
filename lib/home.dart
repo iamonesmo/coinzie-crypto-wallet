@@ -1,3 +1,4 @@
+import 'package:coinzie/newsCard.dart';
 import 'package:flutter/material.dart';
 
 import 'coinsScroller.dart';
@@ -24,9 +25,27 @@ class Home extends StatelessWidget {
             ),
           ),
           CoinsScroller(),
-          SizedBox(
-            height: 30,
+          // SizedBox(
+          //   height: 30,
+          // ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'News',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ),
+          NewsCard(),
+          NewsCard(),
+          NewsCard(),
+          NewsCard(),
+          NewsCard(),
         ],
       ),
     );
