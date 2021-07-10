@@ -45,7 +45,6 @@ class _WalletsState extends State<Wallets> {
           ),
         ),
         SizedBox(
-          // width: MediaQuery.of(context).size.width - 12,
           child: ElevatedButton(
               style: ButtonStyle(
                 backgroundColor:
@@ -92,7 +91,7 @@ class _WalletsState extends State<Wallets> {
                             backgroundColor: MaterialStateProperty.all(
                                 Colors.tealAccent.shade400),
                           ),
-                          child: Text("import your own"),
+                          child: Text("Import Your Own"),
                           onPressed: () {},
                         ),
                       )
