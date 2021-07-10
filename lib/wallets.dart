@@ -1,3 +1,4 @@
+import 'package:coinzie/walletCard.dart';
 import 'package:flutter/material.dart';
 
 class Wallets extends StatefulWidget {
@@ -11,6 +12,7 @@ class _WalletsState extends State<Wallets> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
           child: Container(
@@ -24,7 +26,7 @@ class _WalletsState extends State<Wallets> {
                   Padding(
                     padding: const EdgeInsets.only(top: 6.0, bottom: 15.0),
                     child: Text(
-                      'All your Wallets,',
+                      'No Wallets Added Yet',
                       style: TextStyle(
                         color: Colors.blue[900],
                         fontSize: 17,
@@ -37,21 +39,68 @@ class _WalletsState extends State<Wallets> {
                     width: MediaQuery.of(context).size.width - 15,
                     height: 200,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 6.0, bottom: 15.0),
-                    child: Text(
-                      'In one place',
-                      style: TextStyle(
-                        color: Colors.blue[900],
-                        fontSize: 17,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
           ),
+        ),
+        SizedBox(
+          // width: MediaQuery.of(context).size.width - 12,
+          child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.tealAccent.shade400),
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (ctx) => SimpleDialog(
+                    children: [
+                      SimpleDialogOption(
+                        child: WalletCard(
+                          'assets/images/metamask.png',
+                          'Metamask',
+                        ),
+                      ),
+                      SimpleDialogOption(
+                        child: WalletCard(
+                          'assets/images/coinbase.png',
+                          'Coinbase',
+                        ),
+                      ),
+                      SimpleDialogOption(
+                        child: WalletCard(
+                          'assets/images/exodus.png',
+                          'Exodus',
+                        ),
+                      ),
+                      SimpleDialogOption(
+                        child: WalletCard(
+                          'assets/images/TWT.png',
+                          'Trust Wallet',
+                        ),
+                      ),
+                      SimpleDialogOption(
+                        child: WalletCard(
+                          'assets/images/myehter.png',
+                          'MyEtherWallet',
+                        ),
+                      ),
+                      SimpleDialogOption(
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.tealAccent.shade400),
+                          ),
+                          child: Text("import your own"),
+                          onPressed: () {},
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+              child: Text('Add Wallets')),
         ),
       ],
     );

@@ -57,6 +57,11 @@ flutter:
     - assets/images/logo.png
     - assets/images/buy-crypto.png
     - assets/images/signup.png
+    - assets/images/coinbase.png
+    - assets/images/exodus.png
+    - assets/images/metamask.png
+    - assets/images/myehter.png
+    - assets/images/TWT.png
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
