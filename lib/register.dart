@@ -1,3 +1,4 @@
+import 'package:coinzie/Global/global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,7 +28,11 @@ class _SignupSheetState extends State<SignupSheet> {
       _sharedPreferences.setString('email', _emailController.text);
       _sharedPreferences.setString('fullName', _nameController.text);
       _sharedPreferences.setString('password', _passwordController.text);
-      Get.to(MainApp());
+      _sharedPreferences.setBool('login', true);
+      setState(() {
+        isLoggedIn = true;
+      });
+      Get.offAll(MainApp());
     }
   }
 

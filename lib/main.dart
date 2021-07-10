@@ -1,12 +1,12 @@
 import 'package:coinzie/drawer.dart';
 import 'package:coinzie/home.dart';
 import 'package:coinzie/portfolio.dart';
+import 'package:coinzie/splashScreen.dart';
 import 'package:coinzie/wallets.dart';
-import 'package:coinzie/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
 }
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: Colors.deepPurpleAccent.shade400,
           highlightColor: Color.fromRGBO(126, 87, 194, 1.0)),
-      home: Welcome(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -31,17 +31,6 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   int _currentIndex = 0;
-  final myController = TextEditingController();
-
-  void clearText() {
-    myController.clear();
-  }
-
-  @override
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
 
   final tabs = [
     Home(),

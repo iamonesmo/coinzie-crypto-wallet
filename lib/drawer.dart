@@ -1,10 +1,18 @@
+import 'package:coinzie/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'customListTile.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -33,14 +41,14 @@ class MyDrawer extends StatelessWidget {
                           decoration: TextDecoration.underline,
                           decorationColor: Colors.green.shade400,
                           decorationThickness: 0.3,
-                          letterSpacing: 1),
+                          letterSpacing: 2),
                     ),
                     Text(
-                      'CRYPTO WALLET',
+                      'EVERYTHING CRYPTO',
                       style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 17.0,
                           color: Colors.blue.shade900,
-                          letterSpacing: 2),
+                          letterSpacing: 1),
                     )
                   ],
                 )),
@@ -48,7 +56,30 @@ class MyDrawer extends StatelessWidget {
           CustomListTile(Icons.person_outline, 'Account', () {}),
           CustomListTile(Icons.notifications_outlined, 'Notifcations', () {}),
           CustomListTile(Icons.settings_outlined, 'Settings', () {}),
-          CustomListTile(Icons.logout_outlined, 'Log Out', () {})
+          CustomListTile(Icons.logout_outlined, 'Log Out', () {
+            return showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                      title: Text('Are You sure you want to logout?'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              //  Navigator.pop(context)
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Text('No')),
+                        TextButton(
+                            onPressed: () async {
+                              SharedPreferences _sp =
+                                  await SharedPreferences.getInstance();
+                              _sp.setBool('login', false);
+
+                              Get.offAll(Welcome());
+                            },
+                            child: Text('Yes'))
+                      ],
+                    ));
+          }),
         ],
       ),
     );

@@ -30,9 +30,11 @@ class _LoginSheetState extends State<LoginSheet> {
     SharedPreferences _sp = await SharedPreferences.getInstance();
     var obtainedEmail = _sp.getString('email');
     var obtainedPassword = _sp.getString('password');
+    // var checkLoggedIn = _sp.getBool('login');
     setState(() {
       finalEmail = obtainedEmail;
       password = obtainedPassword;
+      // isLoggedIn = checkLoggedIn!;
     });
   }
 
@@ -41,7 +43,9 @@ class _LoginSheetState extends State<LoginSheet> {
       //
       if (_passwordController.text == password &&
           _emailController.text == finalEmail) {
-        Get.to(MainApp());
+        SharedPreferences _sp = await SharedPreferences.getInstance();
+        _sp.setBool('login', true);
+        Get.offAll(MainApp());
       } else {
         Fluttertoast.showToast(
             msg: "Wrong Password or Email. Try creating an acount first.",
