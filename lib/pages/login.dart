@@ -50,7 +50,7 @@ class _LoginSheetState extends State<LoginSheet> {
       } else {
         Fluttertoast.showToast(
             msg: "Wrong Password or Email. Try creating an acount first.",
-            textColor: Colors.red,
+            textColor: Colors.black,
             backgroundColor: Colors.red,
             toastLength: Toast.LENGTH_LONG);
       }
