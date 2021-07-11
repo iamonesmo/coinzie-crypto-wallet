@@ -1,14 +1,14 @@
-import 'package:coinzie/drawer.dart';
-import 'package:coinzie/home.dart';
-import 'package:coinzie/news.dart';
-import 'package:coinzie/portfolio.dart';
-import 'package:coinzie/splashScreen.dart';
-import 'package:coinzie/wallets.dart';
+import 'package:coinzie/widgets/drawer.dart';
+import 'package:coinzie/pages/home.dart';
+import 'package:coinzie/pages/news.dart';
+import 'package:coinzie/pages/portfolio.dart';
+import 'package:coinzie/pages/splashScreen.dart';
+import 'package:coinzie/pages/wallets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:get/get.dart';
 
-import 'account.dart';
+import '../widgets/account.dart';
 
 Future main() async {
   await Settings.init(cacheProvider: SharePreferenceCache());

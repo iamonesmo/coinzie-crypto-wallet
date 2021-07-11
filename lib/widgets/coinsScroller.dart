@@ -1,4 +1,4 @@
-import 'package:coinzie/coinCard.dart';
+import 'package:coinzie/widgets/coinCard.dart';
 import 'package:flutter/material.dart';
 
 class CoinsScroller extends StatelessWidget {

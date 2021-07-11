@@ -1,9 +1,9 @@
 import 'package:coinzie/services/api_services.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'customNewsTile.dart';
 
-import 'models/artical_model.dart';
+import '../widgets/customNewsTile.dart';
+
+import '../models/artical_model.dart';
 
 class News extends StatefulWidget {
   const News({Key? key}) : super(key: key);

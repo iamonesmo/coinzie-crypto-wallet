@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:coinzie/Global/global.dart';
-import 'package:coinzie/main.dart';
-import 'package:coinzie/welcome.dart';
+import 'package:coinzie/pages/main.dart';
+import 'package:coinzie/pages/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';

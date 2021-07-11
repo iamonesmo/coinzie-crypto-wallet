@@ -1,9 +1,6 @@
-import 'package:coinzie/news.dart';
-import 'package:coinzie/services/api_services.dart';
 import 'package:flutter/material.dart';
 
-import 'coinsScroller.dart';
-import 'newsCard.dart';
+import '../widgets/coinsScroller.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

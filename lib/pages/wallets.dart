@@ -1,4 +1,4 @@
-import 'package:coinzie/walletCard.dart';
+import 'package:coinzie/widgets/walletCard.dart';
 import 'package:flutter/material.dart';
 
 class Wallets extends StatefulWidget {

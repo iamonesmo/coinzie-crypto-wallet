@@ -1,5 +1,5 @@
 import 'package:coinzie/Global/global.dart' as global;
-import 'package:coinzie/iconWidget.dart';
+import 'package:coinzie/widgets/iconWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 

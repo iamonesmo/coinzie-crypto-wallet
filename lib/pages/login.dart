@@ -1,4 +1,4 @@
-import 'package:coinzie/main.dart';
+import 'package:coinzie/pages/main.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Global/global.dart';
+import '../Global/global.dart';
 
 class LoginSheet extends StatefulWidget {
   const LoginSheet(ctx, {Key? key}) : super(key: key);
