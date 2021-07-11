@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class SignupSheet extends StatefulWidget {
   const SignupSheet(ctx, {Key? key}) : super(key: key);

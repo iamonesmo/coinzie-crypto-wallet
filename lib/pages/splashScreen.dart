@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:coinzie/Global/global.dart';
-import 'package:coinzie/pages/main.dart';
+import 'package:coinzie/main.dart';
 import 'package:coinzie/pages/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,7 +42,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Welcome'),
+        child: Container(
+          child: Image.asset(
+            'assets/images/logoicon.png',
+          ),
+        ),
       ),
     );
   }

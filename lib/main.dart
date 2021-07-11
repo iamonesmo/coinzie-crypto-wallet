@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:get/get.dart';
 
-import '../widgets/account.dart';
+import 'widgets/account.dart';
 
 Future main() async {
   await Settings.init(cacheProvider: SharePreferenceCache());
