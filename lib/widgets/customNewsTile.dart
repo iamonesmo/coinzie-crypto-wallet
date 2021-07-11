@@ -32,7 +32,8 @@ Widget customNewsTile(Artical article) {
         Container(
           padding: EdgeInsets.all(6.0),
           decoration: BoxDecoration(
-              color: Colors.red, borderRadius: BorderRadius.circular(30.0)),
+              color: Colors.tealAccent[400],
+              borderRadius: BorderRadius.circular(30.0)),
           child: Text(
             article.source.name,
             style: TextStyle(color: Colors.white),
