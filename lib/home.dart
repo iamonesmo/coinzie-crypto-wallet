@@ -1,11 +1,19 @@
-import 'package:coinzie/newsCard.dart';
+import 'package:coinzie/news.dart';
+import 'package:coinzie/services/api_services.dart';
 import 'package:flutter/material.dart';
 
 import 'coinsScroller.dart';
+import 'newsCard.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  // ApiService client = ApiService();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,7 +48,7 @@ class Home extends StatelessWidget {
                 Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'News',
+                    'Top Gainers and Lossers',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
@@ -48,15 +56,11 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ),
-                TextButton(onPressed: () {}, child: Text('See All'))
+                TextButton(onPressed: () {}, child: Text('See All')),
               ],
             ),
           ),
-          NewsCard(),
-          NewsCard(),
-          NewsCard(),
-          NewsCard(),
-          NewsCard(),
+          CoinsScroller(),
           TextButton.icon(
               onPressed: () {},
               icon: Icon(Icons.dashboard_customize),

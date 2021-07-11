@@ -31,6 +31,8 @@ class _SignupSheetState extends State<SignupSheet> {
       _sharedPreferences.setBool('login', true);
       setState(() {
         isLoggedIn = true;
+        fullName = _nameController.text;
+        finalEmail = _emailController.text;
       });
       Get.offAll(MainApp());
     }

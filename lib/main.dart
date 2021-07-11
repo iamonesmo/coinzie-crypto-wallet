@@ -1,5 +1,6 @@
 import 'package:coinzie/drawer.dart';
 import 'package:coinzie/home.dart';
+import 'package:coinzie/news.dart';
 import 'package:coinzie/portfolio.dart';
 import 'package:coinzie/splashScreen.dart';
 import 'package:coinzie/wallets.dart';
@@ -40,15 +41,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   int _currentIndex = 0;
 
-  final tabs = [
-    Home(),
-    Wallets(),
-    Portforlio(),
-    Center(
-      child: Text("Markets"),
-    ),
-    Account()
-  ];
+  final tabs = [Home(), Wallets(), Portforlio(), News(), Account()];
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +92,7 @@ class _MainAppState extends State<MainApp> {
           BottomNavigationBarItem(
               icon: Icon(Icons.pie_chart_outline), label: 'Portfolio'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart_outlined), label: 'Markets'),
+              icon: Icon(Icons.bar_chart_outlined), label: 'News'),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Account'),
         ],
