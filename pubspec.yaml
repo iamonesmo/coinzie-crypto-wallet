@@ -27,6 +27,8 @@ dependencies:
   shared_preferences: ^2.0.6
   form_field_validator: 
   fluttertoast: ^8.0.7
+  flutter_settings_screens: 0.3.0-null-safety
+  
 
 
 
@@ -62,6 +64,7 @@ flutter:
     - assets/images/metamask.png
     - assets/images/myehter.png
     - assets/images/TWT.png
+    - assets/images/avatar.png
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

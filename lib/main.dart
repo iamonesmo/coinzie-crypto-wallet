@@ -4,27 +4,35 @@ import 'package:coinzie/portfolio.dart';
 import 'package:coinzie/splashScreen.dart';
 import 'package:coinzie/wallets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:get/get.dart';
 
-void main() async {
+import 'account.dart';
+
+Future main() async {
+  await Settings.init(cacheProvider: SharePreferenceCache());
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Coinzie : Crypto Wallet',
-      theme: ThemeData(
-          primaryColor: Colors.deepPurpleAccent.shade400,
-          highlightColor: Color.fromRGBO(126, 87, 194, 1.0)),
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
-    );
+    return ValueChangeObserver<bool>(
+        cacheKey: Account.keyDarkMode,
+        defaultValue: true,
+        builder: (_, isDarkMode, __) => GetMaterialApp(
+              title: 'Coinzie : Crypto Wallet',
+              theme: ThemeData(
+                  primaryColor: Colors.deepPurpleAccent.shade400,
+                  highlightColor: Color.fromRGBO(126, 87, 194, 1.0)),
+              home: SplashScreen(),
+              debugShowCheckedModeBanner: false,
+            ));
   }
 }
 
 class MainApp extends StatefulWidget {
+  static final String title = 'Settings';
   @override
   _MainAppState createState() => _MainAppState();
 }
@@ -39,9 +47,7 @@ class _MainAppState extends State<MainApp> {
     Center(
       child: Text("Markets"),
     ),
-    Center(
-      child: Text("Account"),
-    )
+    Account()
   ];
 
   @override

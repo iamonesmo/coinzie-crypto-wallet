@@ -30,11 +30,12 @@ class _LoginSheetState extends State<LoginSheet> {
     SharedPreferences _sp = await SharedPreferences.getInstance();
     var obtainedEmail = _sp.getString('email');
     var obtainedPassword = _sp.getString('password');
+    var obtainedName = _sp.getString('fullName');
     // var checkLoggedIn = _sp.getBool('login');
     setState(() {
       finalEmail = obtainedEmail;
       password = obtainedPassword;
-      // isLoggedIn = checkLoggedIn!;
+      fullName = obtainedName;
     });
   }
 
